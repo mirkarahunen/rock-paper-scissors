@@ -1,0 +1,57 @@
+@use "../base/variables" as *;
+
+.btn {
+    text-transform: uppercase;
+    //border: 1px solid;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    letter-spacing: 2px;
+    
+    transition: all .4s ease;
+    
+    &--primary {
+        color: white; 
+        background: $radial-bg-gradient;
+    }
+
+    &--secondary {
+        background-color: white;
+        color: #dc2e4e;
+    }
+
+    .purple-gradient {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: -11px;
+            left: -34px;
+            background: white;
+            width: 120px;
+            height: 42px;
+            z-index: -1;
+            border-radius: 8px;
+            transition: background 1s ease;
+        }
+    }
+
+    &:hover {
+        .purple-gradient {
+            &::before {
+                background: linear-gradient(#834fe3, #8c5de5);
+            }
+        }
+    }
+}
+
+.rules-btn {
+    margin: 20px auto;
+    display: block;
+
+    @media(min-width: $md) {
+        margin: 20px 0 20px auto;
+    }
+}
+
