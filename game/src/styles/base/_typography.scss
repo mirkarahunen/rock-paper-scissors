@@ -1,0 +1,37 @@
+// typography rules and typography helper classes
+@use "./variables" as *;
+
+h1,
+h2,
+h3,
+p {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+h1,
+.heading-h1 {
+    font-size: 25px;
+    font-weight: 700;
+
+    @media(min-width: $md) {
+        font-size: 35px;
+    }
+
+    @media(min-width: $lg) {
+        font-size: 40px;
+    }
+}
+
+h2,
+.heading-h2 {
+    font-size: 60px;
+    font-weight: 700;
+
+    @media(min-width: $lg) {
+        font-size: 80px;
+    }
+}
+
+p {
+    font-weight: 600;
+}

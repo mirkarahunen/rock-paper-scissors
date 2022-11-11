@@ -1,0 +1,50 @@
+@use "../base/variables" as *;
+
+.game {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: auto;
+
+    .bg-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .game-btn {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        >span {
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 2px 8px inset #80808046;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        &#paper {
+            background: $paper-gradient;
+        }
+
+        &#scissors {
+            justify-self: end;
+            background: $scissors-gradient;
+        }
+
+        &#rock {
+            justify-self: center;
+            background: $rock-gradient;
+        }
+    }
+}

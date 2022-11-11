@@ -1,0 +1,24 @@
+@use "../base/variables" as *;
+
+.tile {
+    background-color: white;
+    padding: 5px 25px;
+    text-align: center;
+    border-radius: 10px;
+
+    @media(min-width: $lg) {
+        padding: 5px 50px;
+    }
+
+    p {
+        text-transform: uppercase;
+        color: $scoreText;
+        margin-bottom: 0;
+        letter-spacing: 3px;
+    }
+
+    h2 {
+        margin: 0;
+        color: $darkText;
+    }
+}

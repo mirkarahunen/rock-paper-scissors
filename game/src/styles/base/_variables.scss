@@ -1,0 +1,27 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+// xl - laptop
+$xl-laptop-sm: 1280px;
+$xl-laptop-lg: 1440px;
+// xxl
+$xxl: 1600px;
+// ww - min-width 1516px
+$ww: 1546px;
+$hd: 1800px;
+$uw: 2000px;
+
+
+
+// Colors
+$scissors-gradient: linear-gradient(#ec9e0e, #eca922);
+$paper-gradient: linear-gradient(#4865f4, #5671f5);
+$rock-gradient: linear-gradient(#dc2e4e, #dd405d);
+$lizard-gradient: linear-gradient(#834fe3, #8c5de5);
+$cyan:linear-gradient(#40b9ce, #52bed1);
+
+$darkText: hsl(229, 25%, 31%);
+$scoreText: hsl(229, 64%, 46%);
+$headerOutline: hsl(217, 16%, 45%);
+$radial-bg-gradient: linear-gradient(#141539, #141539);
