@@ -12,7 +12,7 @@ const Game = () => {
     const options = ["rock", "paper", "scissors"];
 
     const gameResult = (chosen, house) => {
-        
+        console.log(chosen, house);
         if(chosen === house) {
             updateScore("draw");
             return;
