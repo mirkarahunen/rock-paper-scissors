@@ -11,16 +11,18 @@ const ScoreProvider = (props) => {
     const [ gameResultText, setGameResultText ] = useState("");
 
     const updateScore = (result) => {
-        if(score <= 0) setScore(0);
         if(result === "win") {
-            setScore(score++);
+            setScore(score+1);           
             setGameResultText("You win!");
         } else if(result === "draw") {
             setGameResultText("Draw");
         } else {
-            setScore(score--);
+            setScore(score-1);
+            if(score <= 0) setScore(0);
             setGameResultText("You lose");
         };
+
+        
     }
 
     return (

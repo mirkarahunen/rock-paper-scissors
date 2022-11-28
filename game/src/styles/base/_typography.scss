@@ -16,11 +16,12 @@ h1,
     font-weight: 700;
 
     @media(min-width: $md) {
-        font-size: 35px;
+        //font-size: 35px;
+        font-size: 30px;
     }
 
     @media(min-width: $lg) {
-        font-size: 40px;
+        //font-size: 40px;
     }
 }
 

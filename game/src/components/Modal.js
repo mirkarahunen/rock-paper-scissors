@@ -13,7 +13,8 @@ const Modal = () => {
                     <button type="button" className="close-icon"><img src="../images/icon-close.svg" alt="close" onClick={changeMode}/></button>
                 </div>
                 <div className="modal__body">
-                    <img src="../images/image-rules.svg" alt="Game rules"/>
+                    {/* <img src="../images/image-rules.svg" alt="Game rules"/> */}
+                    <img src="../images/image-rules-bonus.svg" alt="Game rules"/>
                 </div>
             </div>
         </div>
