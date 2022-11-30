@@ -1,16 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ModalContext } from "./context/ModalContext";
 import { ScoreContext } from "./context/ScoreContext";
-
+import GameBtn from "./GameBtn";
 
 const Game = () => {
     const { changeMode } = useContext(ModalContext);
-    const { updateScore, gameResultText } = useContext(ScoreContext);
+    const { win, updateScore, gameResultText } = useContext(ScoreContext);
     const [ chosen, setChosen ] = useState("");
     const [ playing, setPlaying ] = useState(false);
     const [ houseChoice, setHouseChoice ] = useState("");
     const options = ["rock", "paper", "scissors", "lizard", "spock"];
     const [houseIsChoosing, setHouseIsChoosing] = useState(false);
+
 
     const gameResult = (chosen, house) => {
 
@@ -46,8 +47,14 @@ const Game = () => {
         if(chosen === "spock") {
             if(house === "scissors" || house === "rock") updateScore("win");
             if(house === "lizard" || house === "paper") updateScore("lose");
+            return;
         }
     }
+
+    useEffect(() => {
+        console.log(win);
+
+    }, [win])
 
     const choosePlayedItem = (e) => {
         let randomChoice;
@@ -65,16 +72,14 @@ const Game = () => {
     }
 
     const playAgain = () => setPlaying(false);
-
+console.log(win === "player");
     return (
         <div className="container">
             {playing ? (
                 <div className="game game--ongoing">
                     <div className="player-choise">
                         <h4>You picked</h4>
-                        <div className={`game-btn ${chosen}`}>
-                            <span><img src={`../images/icon-${chosen}.svg`} alt={chosen}/></span>
-                        </div>
+                        <GameBtn name={chosen} playing={playing} id={"player"} win={win}/>
                     </div>
                     <div className="result">
                         {!houseIsChoosing && <h3>{gameResultText}</h3>}
@@ -82,9 +87,7 @@ const Game = () => {
                     </div>
                     <div className={houseIsChoosing ? "house-choise animated" : "house-choise"}>
                         <h4>The house picked</h4>
-                        <div className={houseIsChoosing ? `game-btn` : `game-btn ${houseChoice} show`}>
-                            <span><img src={`../images/icon-${houseChoice}.svg`} alt={houseChoice}/></span>
-                        </div>
+                        <GameBtn name={houseChoice} houseIsChoosing={houseIsChoosing} playing={playing} id={"house"} win={win}/>
                     </div>
                 </div>
             ) : (
@@ -93,26 +96,15 @@ const Game = () => {
                         {/* <img src="../images/bg-triangle.svg" alt="Triangle"/> */}
                         <img src="../images/bg-pentagon.svg" alt="Pentagon"/> 
                     </div>
-                    <button type="button" value="scissors" className="game-btn scissors" onClick={choosePlayedItem}>
-                        <span><img src="../images/icon-scissors.svg" alt="Scissors hand"/></span>
-                    </button>
-                    <button type="button" value="paper" className="game-btn paper" onClick={choosePlayedItem}>
-                        <span><img src="../images/icon-paper.svg" alt="Paper hand"/></span>
-                    </button>    
-                    
-                    <button type="button" value="rock" className="game-btn rock" onClick={choosePlayedItem}>
-                        <span><img src="../images/icon-rock.svg" alt="Rock hand"/></span>
-                    </button>
-                    <button type="button" value="lizard" className="game-btn lizard" onClick={choosePlayedItem}>
-                        <span><img src="../images/icon-lizard.svg" alt="Lizard"/></span>
-                    </button>
-                    <button type="button" value="spock" className="game-btn spock" onClick={choosePlayedItem}>
-                        <span><img src="../images/icon-spock.svg" alt="Spock"/></span>
-                    </button>
+                    <GameBtn name="scissors" handleClick={choosePlayedItem} playing={playing}/>
+                    <GameBtn name="paper" handleClick={choosePlayedItem} playing={playing}/>
+                    <GameBtn name="rock" handleClick={choosePlayedItem} playing={playing}/>
+                    <GameBtn name="lizard" handleClick={choosePlayedItem} playing={playing}/>
+                    <GameBtn name="spock" handleClick={choosePlayedItem} playing={playing}/>
                 </div>
             )}
             
-            <button type="button" className="btn btn--primary rules-btn" onClick={changeMode}><span className="purple-gradient">Rules</span></button>
+            <button type="button" className="btn btn--primary rules-btn" onClick={changeMode}><span>Rules</span></button>
         </div>
         
     )

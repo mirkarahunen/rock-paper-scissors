@@ -7,41 +7,26 @@
     padding: 10px 32px;
     font-family: 'Barlow Semi Condensed', sans-serif;
     letter-spacing: 2px;
-    
     transition: all .4s ease;
     
     &--primary {
         color: white; 
         background: $radial-bg-gradient;
+        border: 1px solid white;
+
+        &:hover {
+            color: #ec9e0e;
+            border-color: #ec9e0e;
+        }
     }
 
     &--secondary {
         background-color: white;
         color: #dc2e4e;
-    }
 
-    .purple-gradient {
-        position: relative;
-
-        &::before {
-            position: absolute;
-            content: "";
-            top: -11px;
-            left: -34px;
-            background: white;
-            width: 120px;
-            height: 42px;
-            z-index: -1;
-            border-radius: 8px;
-            transition: background 1s ease;
-        }
-    }
-
-    &:hover {
-        .purple-gradient {
-            &::before {
-                background: linear-gradient(#834fe3, #8c5de5);
-            }
+        &:hover {
+            background-color: #dc2e4e;
+            color: white;
         }
     }
 }
@@ -49,6 +34,7 @@
 .rules-btn {
     margin: 20px auto;
     display: block;
+    position: relative;
 
     @media(min-width: $md) {
         margin: 20px 0 20px auto;
