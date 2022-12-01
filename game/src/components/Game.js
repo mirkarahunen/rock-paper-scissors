@@ -1,11 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
-import { ModalContext } from "./context/ModalContext";
+import React, { useContext, useState } from "react";
 import { ScoreContext } from "./context/ScoreContext";
 import GameBtn from "./GameBtn";
 
 const Game = () => {
-    const { changeMode } = useContext(ModalContext);
-    const { win, updateScore, gameResultText } = useContext(ScoreContext);
+    const { win, setWin, updateScore, gameResultText } = useContext(ScoreContext);
     const [ chosen, setChosen ] = useState("");
     const [ playing, setPlaying ] = useState(false);
     const [ houseChoice, setHouseChoice ] = useState("");
@@ -51,11 +49,6 @@ const Game = () => {
         }
     }
 
-    useEffect(() => {
-        console.log(win);
-
-    }, [win])
-
     const choosePlayedItem = (e) => {
         let randomChoice;
         let chosenItem = e.currentTarget.value;
@@ -71,8 +64,11 @@ const Game = () => {
         }, 1000);    
     }
 
-    const playAgain = () => setPlaying(false);
-console.log(win === "player");
+    const playAgain = () => {
+        setPlaying(false);
+        setWin("");
+    }
+
     return (
         <div className="container">
             {playing ? (
@@ -104,7 +100,7 @@ console.log(win === "player");
                 </div>
             )}
             
-            <button type="button" className="btn btn--primary rules-btn" onClick={changeMode}><span>Rules</span></button>
+            
         </div>
         
     )

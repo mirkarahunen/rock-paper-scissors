@@ -2,7 +2,6 @@
 
 .btn {
     text-transform: uppercase;
-    //border: 1px solid;
     border-radius: 8px;
     padding: 10px 32px;
     font-family: 'Barlow Semi Condensed', sans-serif;
@@ -13,6 +12,7 @@
         color: white; 
         background: $radial-bg-gradient;
         border: 1px solid white;
+        padding: 10px 36px;
 
         &:hover {
             color: #ec9e0e;
@@ -32,12 +32,16 @@
 }
 
 .rules-btn {
-    margin: 20px auto;
-    display: block;
-    position: relative;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
 
     @media(min-width: $md) {
-        margin: 20px 0 20px auto;
+        right: 50px;
+        left: auto;
+        transform: none;
+        bottom: 0;
     }
 }
 

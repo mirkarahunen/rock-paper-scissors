@@ -2,19 +2,25 @@
 
 .tile {
     background-color: white;
-    padding: 5px 25px;
+    padding: 10px 25px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 4px;
 
     @media(min-width: $lg) {
-        padding: 5px 50px;
+        padding: 20px 50px;
     }
 
     p {
         text-transform: uppercase;
         color: $scoreText;
-        margin-bottom: 0;
-        letter-spacing: 3px;
+        margin: 0;
+        font-size: 10px;
+        letter-spacing: 1px;
+
+        @media(min-width: $md) {
+            font-size: 16px;
+            letter-spacing: 3px;
+        }
     }
 
     h2 {

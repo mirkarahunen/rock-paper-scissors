@@ -4,7 +4,8 @@ export const ScoreContext = createContext({
     score: 0,
     win: false,
     updateScore: () => {},
-    gameResultText: ""
+    gameResultText: "",
+    setWin: () => {}
 });
 
 const ScoreProvider = (props) => {
@@ -29,7 +30,7 @@ const ScoreProvider = (props) => {
     }
 
     return (
-        <ScoreContext.Provider value={{ score, updateScore, gameResultText, win}}>
+        <ScoreContext.Provider value={{ score, updateScore, gameResultText, win, setWin }}>
             {props.children}
         </ScoreContext.Provider>
     )

@@ -1,22 +1,17 @@
-import Game from "./components/Game";
-import Header from "./components/Header";
 import ModalProvider from "./components/context/ModalContext";
-import Modal from "./components/Modal";
 import ScoreProvider from "./components/context/ScoreContext";
-
+import Layout from "./components/Layout";
 
 const App = () => {
 
   return (
     <ModalProvider>
-      <ScoreProvider>
-      <div className="App">
-          <Header/>
-          <Game />
-          <Modal />
-      </div>
-      </ScoreProvider>
-      </ModalProvider>
+        <ScoreProvider>
+            <div className="App">          
+                <Layout />
+            </div>
+        </ScoreProvider>
+    </ModalProvider>
   );
 }
 
